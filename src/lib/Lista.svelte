@@ -54,7 +54,7 @@ const lista = [
 </table>
 
 
-<h1>Visualizzazione in tabella</h1>
+<h1>Visualizzazione in card</h1>
 <div class="card-list">
     {#each lista as item}
         <div class="card">
