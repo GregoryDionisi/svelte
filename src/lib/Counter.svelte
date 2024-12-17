@@ -5,14 +5,22 @@ function increment() {
   count += 1;
 }
 
-let double =$derived(count * 2) //lo stato di double dipende dallo stato di count. Non posso usare $derived senza uno $state
-
-//$effect((() => {alert(`Il valore del contatore è ${count}`)}));
+function decrement() {
+  count -= 1;
+}
 </script>
 
 <div class = subComponente>
-<button onclick = {increment}>Clicked {count}</button>
-<p>Il doppio di {count} è {double}</p>
+<p>Count: {count}</p>
+<button onclick = {increment}> + </button>
+<button onclick = {decrement}> - </button>
+{#if count > 10}
+  <p>Count è maggiore di 10</p>
+  {:else if count < 0}
+    <p>Count è minore di 0</p>
+  {:else}
+    <p>Count è compreso tra 0 e 10</p>
+{/if}
 </div>
 
 <style>
@@ -30,6 +38,7 @@ let double =$derived(count * 2) //lo stato di double dipende dallo stato di coun
 
   .subComponente {
     background-color: lightblue;
+    border: 1px solid black;
     padding: 10px;
     width: 200px;
     border-radius: 10px;

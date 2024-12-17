@@ -1,15 +1,15 @@
 <script>
     let { nome = "---", cognome = "---", email = "---", password = "---" } = $props(); //props si usa come una specie di argomento
 </script>
- 
+
 <div>
-<h1>Contatti</h1>
-<p>Nome: {nome}</p>
-<p>Cognome: {cognome}</p>
-<p>Email: {email}</p>
-<p>Password: {password}</p>
+    <h1>Contatti</h1>
+    <p>Nome: {nome}</p>
+    <p>Cognome: {cognome}</p>
+    <p>Email: {email}</p>
+    <p>Password: {password}</p>
 </div>
- 
+
 <style>
 	h1 {
 		color: blue;
