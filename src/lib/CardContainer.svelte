@@ -37,31 +37,13 @@
 
 <h1>Visualizzazione in card</h1>
 <div class="card-list">
+{#each lista as item}
     <Card 
-nome = {lista[0].nome}
-prezzo = {lista[0].prezzo}
-descrizione = {lista[0].descrizione}
+nome = {item.nome}
+prezzo = {item.prezzo}
+descrizione = {item.descrizione}
     />
-    <Card 
-nome = {lista[1].nome}
-prezzo = {lista[1].prezzo}
-descrizione = {lista[1].descrizione}
-    />
-    <Card 
-nome = {lista[2].nome}
-prezzo = {lista[2].prezzo}
-descrizione = {lista[2].descrizione}
-    />
-    <Card 
-nome = {lista[3].nome}
-prezzo = {lista[3].prezzo}
-descrizione = {lista[3].descrizione}
-    />
-    <Card 
-nome = {lista[4].nome}
-prezzo = {lista[4].prezzo}
-descrizione = {lista[4].descrizione}
-    />
+{/each}
 </div>
 <style>
 .card-list {
