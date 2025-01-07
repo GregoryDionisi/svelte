@@ -18,6 +18,7 @@ let persona = {
 
 <p>
 <a href="/firstPage">Vai alla firstPage</a>
+<a href="/formPage">Vai alla formPage</a>
 </p>
 
 <div>
