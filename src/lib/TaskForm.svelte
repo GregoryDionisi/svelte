@@ -1,10 +1,14 @@
 <script>
     let newTask = $state();
-</script>
+    let {addTask} = $props();
 
-function formSubmitted(){
-    console.log(newTask);
+    function formSubmitted(){
+        event.preventDefault();
+        //console.log(newTask);
+        addTask(newTask);
+        newTask = '';
 }
+</script>
 
 <h1>Task form</h1>
 
@@ -18,4 +22,4 @@ function formSubmitted(){
     </div>
 </form>
 
-{newTask}
+<!--{newTask}-->
