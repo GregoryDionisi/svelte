@@ -17,9 +17,15 @@
         task.done = !task.done;
     }
 
-    function removeTask(index){
+    function removeTask(id){
+        const index = tasks.findIndex(
+            (task) => task.id === id
+            );
         tasks.splice(index, 1); //splice rimuove in modo preciso
     }
+
+    const filters = ["all", "todo", "done"];
+    let currentFilter = $state(filters[0]); //inizializzato a "all"
 
     let totalDone = $derived( //$derived si usa quando una variabile viene modificata. Utile per i contatori come questo
         tasks.reduce(
@@ -28,27 +34,50 @@
         )
     )
 
+    let filteredTasks = $derived.by(() => {
+        switch (currentFilter) {
+            case "all": {
+                return tasks;
+            }
+            case "done": {
+                return tasks.filter((task) => task.done);
+            }
+            case "todo": {
+                return tasks.filter((task) => !task.done);
+            }
+        }
+        return tasks;
+    })
+
     $inspect(tasks);
 </script>
 
 <h1>Task App</h1>
 
+<TaskForm {addTask}/>
+
 <p>
-{#if tasks.length}
-    {totalDone}/{tasks.length} {tasks.length < 2 ? "task" : "tasks"} completed
-{:else}
-    Add a task to start
-{/if}
+    {#if tasks.length}
+        {totalDone}/{tasks.length} {tasks.length < 2 ? "task" : "tasks"} completed
+    {:else}
+        Add a task to start
+    {/if}
 </p>
 
-<TaskForm {addTask}/>
 {#if tasks.length}
-    <button>All</button>
-    <button>Todo</button>
-    <button>Done</button>
+    {@render filterButton("all")}
+    {@render filterButton("todo")}
+    {@render filterButton("done")}
+    <!-- <button onclick={() => currentFilter = "all"}>All</button>
+    <button onclick={() => currentFilter = "todo"}>Todo</button>
+    <button onclick={() => currentFilter = "done"}>Done</button> --> <!--altro modo senza snippet-->
 {/if}
 <TasksList 
-    {tasks}
+    tasks = {filteredTasks}
     {toggleDone}
     {removeTask}
 />
+
+{#snippet filterButton(filter)}
+    <button onclick={() => currentFilter = filter} style="text-transform: capitalize">{filter}</button>
+{/snippet}

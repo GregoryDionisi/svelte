@@ -2,8 +2,7 @@
     let {tasks, toggleDone, removeTask} = $props();
 </script>
 
-<h1>Task List</h1>
-{#each tasks as task, index}
+{#each tasks as task}
     <div>
         <label>
             <input 
@@ -13,7 +12,7 @@
             >
             <!--il bind a quanto pare non serve-->
             <span class:done={task.done}>{task.title}</span>
-            <button onclick = {() => removeTask(index)}>Remove</button> <!--quando hai l'argomento usi la funzione freccia-->
+            <button onclick = {() => removeTask(task.id)}>Remove</button> <!--quando hai l'argomento usi la funzione freccia-->
         </label>
     </div>
 {/each}

@@ -10,7 +10,7 @@
 }
 </script>
 
-<h1>Task form</h1>
+<h1>Task</h1>
 
 <form onsubmit={formSubmitted}>
     <label> 
