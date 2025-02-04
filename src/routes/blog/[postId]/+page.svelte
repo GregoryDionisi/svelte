@@ -1,4 +1,8 @@
 <script>
+    // VERSIONE PRECEDENTE
+    //export let data;
+    
+    // VERSIONE ATTUALE
     let {data} = $props();
     $inspect(data) 
 </script>

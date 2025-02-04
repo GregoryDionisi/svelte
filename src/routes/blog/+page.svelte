@@ -1,5 +1,10 @@
 <script>
-    export let data;
+    // VERSIONE PRECEDENTE
+    //export let data;
+    
+    // VERSIONE ATTUALE
+    let {data} = $props();
+    $inspect(data)
 </script>
 
 <h1>My Blog</h1>
