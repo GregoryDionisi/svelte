@@ -2,22 +2,23 @@
 
 let {id = "#id"} = $props()
 
-let count = $state(0); //$state variabile reattiva
+let count = $state(0); //$state variabile reattiva. IMPORTANTE perchè quando il valore cambia, Svelte aggiornerà automaticamente tutti i punti dell'interfaccia che utilizzano questa variabile
 
 function increment() {
   count += 1;
 }
 
-let double =$derived(count * 2) //lo stato di double dipende dallo stato di count. Non posso usare $derived senza uno $state
+let double =$derived(count * 2) //lo stato di double dipende dallo stato di count. Non posso usare $derived senza uno $state. Ogni volta che count cambia, double verrà ricalcolato automaticamente
 
-let array = $state([1,2,3,4,5]);
+
+let array = $state([1,2,3,4,5]); //viene utilizzato $state per rendere l'array modificabile
 let sum = $derived(array.reduce((a, b) => a + b, 0));
 
 function addNumber() {
   array.push(array.length + 1)
 }
 
-$inspect(array)
+$inspect(array) //$inspect permette di monitorare i cambiamenti di una variabile reattiva che si vede nella console del browser
 
 //$effect((() => {alert(`Il valore del contatore è ${count}`)}));
 </script>

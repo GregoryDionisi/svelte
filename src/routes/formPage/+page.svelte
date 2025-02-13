@@ -29,8 +29,8 @@
    
     function nextStep(id) {
  
-        if (formState.answers[id]){
-                formState.step += 1;
+        if (formState.answers[id]){ //IMPORTANTISSIMO: quando usiamo formState.answers.id cerchiamo una proprietà letteralmente chiamata "id", mentre se usiamo formState.answers[id] usiamo il valore contenuto nella variabile id
+                formState.step += 1; //perchè answers risulterebbe così answers: {id: "name"} e quindi si cerca "dentro" la proprietà id, ovvero name
                 formState.error = "";
             } else {
                 formState.error = `Please enter your ${id}`;
@@ -44,13 +44,13 @@
 <Header name = {formState.answers?.name}/> <!--? -> se c'è lo metto senno niente-->
 
 {#if formState.step >= QUESTION.length}
-    <p>Thank you for your {formState.answers.name} answers!</p>
+    <p>Thank you for your answers, {formState.answers.name}!</p>
 {:else}
     <p>Step: {formState.step + 1}</p> <!--Per un utente sarebbe meglio vedere 1 invece di 0-->
  {/if}
  
 {#each QUESTION as {id, question,type}, bob} <!--bob è il contatore che conterà ogni singola iterazione-->
-    {#if formState.step === bob}
+    {#if formState.step === bob} <!--Prende come parametri id, question e type destrutturati--> 
         {@render formStep({id, question, type})}
     {/if}
 {/each}
@@ -72,10 +72,10 @@
     <p>{formState.error}</p>
 {/if}
  
-{#snippet formStep ({id,question,type})}
+{#snippet formStep ({id,question,type})} <!--Prende come parametri id, question e type destrutturati-->
 <div>
     <label for = {id}>{question} </label>
     <input {type} bind:value = {formState.answers[id]} /> <!--per collegare l'input a una variabile usiamo bind-->
 </div>
-<button onclick={() => nextStep(id)}>Next</button> <!--quando richiamo una funzione con un parametro uso l'arrow function -->
+<button onclick={() => nextStep(id)}>Next</button> <!--IMPORTANTISSIMO: quando richiamo una funzione con un parametro uso l'arrow function -->
 {/snippet}

@@ -1,6 +1,6 @@
 <script>
 import Componente1 from "$lib/Componente1.svelte"; //$ è un alias e vuol dire che puoi accedere da qualsiasi parte alla cartella lib. é meglio usare l'alias rispetto al metodo tradizionale ../lib
-import Contact from "$lib/Contact.svelte";
+import Contact from "$lib/Contact.svelte"; //$lib è un alias speciale in Svelte che punta alla cartella src/lib
 import Componente2 from "$lib/Componente2.svelte";
 import Counter from "$lib/Counter.svelte";
 import Array from "$lib/Array.svelte";

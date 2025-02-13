@@ -14,7 +14,7 @@ function decrement() {
 <p>Count: {count}</p>
 <button onclick = {increment}> + </button>
 <button onclick = {decrement}> - </button>
-{#if count > 10}
+{#if count > 10} <!--IMPORTANTISSIMO che count sia $state e quindi reattivo perchè se non fosse così non ci sarebbe un continuo controllo con l'if-->
   <p>Count è maggiore di 10</p>
   {:else if count < 0}
     <p>Count è minore di 0</p>
