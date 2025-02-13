@@ -36,7 +36,7 @@ password = {persona.password}
 <Componente2 />
 </div>
 
-<style>
+<style>	
 	h1 {
 		color: blue;
 	}

@@ -1,5 +1,5 @@
 <script>
-    let { nome = "---", prezzo = "---", descrizione = "---" } = $props(); //props si usa come una specie di argomento
+    let { nome = "---", prezzo = "---", descrizione = "---" } = $props(); //props si usa come una specie di argomento. "---" viene usato come valore di default se non metti niente
 </script>
 
 <div class="card">
