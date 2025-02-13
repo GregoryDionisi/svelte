@@ -3,7 +3,7 @@
     //export let data;
     
     // VERSIONE ATTUALE
-    let {data} = $props();
+    let {data} = $props(); //gli oggetti che ritorni vengono sempre incapsulati in una variabile chiamata "data"
     $inspect(data) 
 </script>
 
