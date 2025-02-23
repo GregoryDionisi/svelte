@@ -49,3 +49,10 @@ password = {persona.password}
 		gap: 20px;
 	}
 </style>
+
+
+<!--Comandi per installare svelte-->
+<!-- npx sv create myapp
+cd myapp
+npm install
+npm run dev -->
